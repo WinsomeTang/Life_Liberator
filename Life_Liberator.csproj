@@ -22,4 +22,9 @@
     <Folder Include="Database\" />
     <Folder Include="Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\css\styles.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

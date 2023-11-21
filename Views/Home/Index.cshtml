@@ -1,11 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
+<!DOCTYPE html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <h2>Winsome Testing</h2>
-    <h3>Mike Testing</h3>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!--Intro Menu Page-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Winsome Tang" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Welcome to Life Liberator</title>
+</head>
+<body>
+
+    <div class="landing-nav-bar">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#" id="sign-in-btn">Sign In</a>
+    </div>
+
+    <section>
+        <div class="hero-section">
+            <h1>Find Balance, Achieve Success</h1>
+            <p>Your all-in-one solution for work-life balance. Plan your schedule efficiently and live a more fulfilling life.</p>
+        </div>
+    </section>
+    <section>
+        <div class="cta-section">
+            <h2>Start Your Journey Today</h2>
+            <p>Join LifeLiberator and take control of your time. Sign up now for a more balanced and productive life.</p>
+            <button href="/SignUp" class="sign-up-btn">Sign Up</button>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2023 Life Liberator. All rights reserved.
+    </footer>
+</body>
+</html>
 
