@@ -16,6 +16,8 @@ namespace Life_Liberator.Models
         public ProficiencyLevel ProficiencyLevel { get; set; }
 
         public required string WorkTimeSlots { get; set; }
+
+        public required string Password { get; set; }
     }
 }
 
