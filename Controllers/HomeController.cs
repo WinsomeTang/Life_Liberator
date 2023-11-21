@@ -1,21 +1,32 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Life_Liberator.Models;
+using Life_Liberator.Data;
 
 namespace Life_Liberator.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly AppDbContext _appDbContext;
+    public HomeController(AppDbContext appDbContext)
     {
-        _logger = logger;
+        _appDbContext = appDbContext;
     }
+
 
     public IActionResult Index()
     {
         return View();
+    }
+
+    public IActionResult SignUp()
+    {
+        return View(); // Assuming you have a corresponding SignUp.cshtml view
+    }
+
+    public IActionResult SignIn()
+    {
+        return View(); // Assuming you have a corresponding SignUp.cshtml view
     }
 
     public IActionResult Privacy()

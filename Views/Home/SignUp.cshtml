@@ -1,0 +1,61 @@
+﻿@model Life_Liberator.Models.User
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up!</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <section>
+       Sign Up to Continue
+    </section>
+
+    <form asp-action="SignUp" method="post" class="m-2">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="form-label">First Name:</label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="form-label">Last name:</label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="form-label">Email:</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ProgrammingLanguage" class="form-label">Programming Language</label>
+            <select asp-for="ProgrammingLanguage" class="form-select">
+                <option value="">Select Programming Language</option>
+                <option value="@(ProgrammingLanguage.CSharp)">C Sharp</option>
+                <option value="@(ProgrammingLanguage.Python)">Python</option>
+                <option value="@(ProgrammingLanguage.Java)">Java</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProficiencyLevel" class="form-label">Proficiency Level:</label>
+            <select asp-for="ProficiencyLevel" class="form-select">
+                <option value="">Select Programming Language</option>
+                <option value="@(ProficiencyLevel.Beginner)">Newb</option>
+                <option value="@(ProficiencyLevel.Intermediate)">I know some stuff</option>
+                <option value="@(ProficiencyLevel.Intermediate)">I know my shit</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkTimeSlots" class="form-label">Work Time Slot:</label>
+            <input asp-for="WorkTimeSlots" class="form-control" />
+        </div>
+        <a class="sign-up-page-btn" asp-action="SignIn">Get Started</a>
+
+    </form>
+</body>
+</html>

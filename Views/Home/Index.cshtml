@@ -1,6 +1,9 @@
 ﻿@{
     Layout = null;
 }
+
+@using Microsoft.AspNetCore.Mvc
+
 <!DOCTYPE html>
 
 <!--Intro Menu Page-->
@@ -19,7 +22,7 @@
         <a href="#">Features</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
-        <a href="#" id="sign-in-btn">Sign In</a>
+        <a asp-action="SignIn" id="sign-in-btn">Sign In</a>
     </div>
 
     <section>
@@ -32,7 +35,8 @@
         <div class="cta-section">
             <h2>Start Your Journey Today</h2>
             <p>Join LifeLiberator and take control of your time. Sign up now for a more balanced and productive life.</p>
-            <button href="/SignUp" class="sign-up-btn">Sign Up</button>
+            <a asp-action="SignUp" class="sign-up-btn">Sign Up</a>
+
         </div>
     </section>
 
