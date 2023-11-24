@@ -7,7 +7,7 @@
     --bolder-font: 900;
     --primary-color: #000;
     --secondary-color: #F3EEE9;
-    --line-height: 1.7rem;
+    --line-height: 2rem;
     --transition: 0.4s ease-in;
 }
 
@@ -42,6 +42,8 @@ ul {
 
 .nav-item {
     margin-left: 2rem;
+    font-weight: var(--bold-font);
+
 }
 
 /*Home tab on nav bar begins here*/
@@ -50,34 +52,32 @@ a.home-nav-link {
     color: var(--primary-color);
     
 }
-    a.home-nav-link:hover {
-        color: var(--secondary-color);
-    }
+
 
 a {
     text-decoration: none;
     margin-top: 1rem;
     display: inline-block;
-    padding: 0.8rem 0.6rem;
+    padding: 0.6rem 1.5rem;
 }
 /*sign up and sign in tabs*/
-    a.nav-link {
-        border: 2px solid var(--primary-color);
-        border-radius: 25px;
-        font-weight: var(--bold-font);
-    }
-    a.nav-link:hover {
-        color: var(--secondary-color);
-        background-color: var(--primary-color);
-    }
-    a.#sign-in-nav-item {
+    a#sign-in-nav-item {
         border: none;
         color: var(--primary-color);
     }
-        a.#sign-in-nav-item:hover {
-            color: var(--secondary-color);
+        a#sign-in-nav-item:hover {
+            text-decoration: underline;
         }
-
+    a#sign-up-nav-item {
+        border: 2px solid var(--primary-color);
+        border-radius: 25px;
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+    }
+    a#sign-up-nav-item:hover{
+        color: var(--secondary-color);
+        background-color: var(--primary-color);
+    }
 nav {
     background: #F3EEE9;
     display: flex;
@@ -103,8 +103,10 @@ nav {
 }
 
 .intro-text h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
+    margin-right: 6rem;
+
 }
 
 .intro-text h3 {
@@ -113,34 +115,37 @@ nav {
 
 .hero p {
     line-height: var(--line-height);
+    color: var(--primary-color);
 }
 
 .hear {
     color: var(--primary-color);
 }
 
-.connecting {
-    color: var(--secondary-color);
-}
-
 .btn {
     margin-top: 1rem;
     display: inline-block;
-    padding: 0.8rem 0.6rem;
-    border: none;
+    padding: 1.5rem 2rem;
+    border: 2px solid var(--primary-color);
     font-size: 1.4rem;
-    border-radius: 5px;
-    color: #fff;
+    border-radius: 40px;
 }
 
-.red {
-    background-color: var(--secondary-color);
+.sign-up {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
     margin-right: 1rem;
 }
 
-    .red:hover {
-        background-color: #f1262d;
-        color: #fff;
+    .sign-up:hover {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
     }
+
+img {
+    margin-left: 6rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
+}
 
     /*Hero section ends*/

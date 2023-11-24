@@ -25,25 +25,26 @@
         </a>
 
         <ul>
-            <li class="nav-item"><a asp-action="SignIn" class="nav-link" id="sign-in-nav-item">Log In</a></li>
-            <li class="nav-item"><a asp-action="SignUp" class="nav-link">Sign Up</a></li>
+            <li class="nav-item"><a asp-action="SignIn" id="sign-in-nav-item">Log In</a></li>
+            <li class="nav-item"><a asp-action="SignUp"id="sign-up-nav-item">Sign Up</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <div class="intro-text">
             <h1>
-                <span class="hear"> Find Balance </span> <br />
+                <span class="hear"> Find Balance, </span> <br />
                 <span class="hear"> Achieve Success</span>
             </h1>
             <p>
                 Your all-in-one solution for work-life balance.<br />
                 Plan your schedule efficiently and live a more fulfilling life.
             </p>
-            <a class="btn red" asp-action="SignUp">Get Started !</a>
+            <a class="btn sign-up" asp-action="SignUp">Get Started !</a>
         </div>
         <div class="i-frame">
-            <p>Insert a picture here</p>
+                   <img src="~/images/undraw_Proud_coder_re_exuy.png"/>
+ 
         </div>
     </section>
 </body>

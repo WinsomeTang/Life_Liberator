@@ -21,6 +21,10 @@
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="Data\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\css\styles.css">
