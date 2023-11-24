@@ -1,83 +1,146 @@
-﻿body {
-    font-family: 'Arial', sans-serif;
+﻿@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+
+/* CSS Variables */
+:root {
+    --normal-font: 400;
+    --bold-font: 600;
+    --bolder-font: 900;
+    --primary-color: #000;
+    --secondary-color: #F3EEE9;
+    --line-height: 1.7rem;
+    --transition: 0.4s ease-in;
+}
+
+/* Smooth scroll effect */
+html {
+    scroll-behavior: smooth;
+    background-color: #F3EEE9;
+}
+
+/* Resets */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f7f7f7;
+    transition: var(--transition);
 }
 
-.landing-nav-bar {
+body {
+    font-family: "Roboto", sans-serf;
+    color: #F3EEE9;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul {
     display: flex;
-    justify-content: center;
-    background-color: white;
-    padding: 0.5rem;
-    border-bottom-color: lightgray;
+    justify-content: space-between;
+    align-items: center;
 }
 
-    .landing-nav-bar a {
-        color: #000;
-        text-decoration: none;
-        margin: 0 1rem;
-
-
-    }
-.sign-up-btn{
-    color: white;
-    background-color: black;
+.nav-item {
+    margin-left: 2rem;
 }
 
-.hero-section {
-    text-align: center;
-    padding: 3rem;
-}
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-        color: #333;
-    }
-
-    .hero-section p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-top: 1rem;
-    }
-
-.cta-section {
-    text-align: center;
-    padding: 3rem;
-    background-color: #fff;
-}
-
-    .cta-section h2 {
-        color: #333;
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-        color: #666;
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-    }
-
-.sign-up-btn {
-    background-color: #000;
-    color: #fff;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    text-decoration: none;
+/*Home tab on nav bar begins here*/
+a.home-nav-link {
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    color: var(--primary-color);
+    
 }
-
-    .sign-up-button:hover {
-        background-color: #45a049;
+    a.home-nav-link:hover {
+        color: var(--secondary-color);
     }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+a {
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 0.6rem;
 }
+/*sign up and sign in tabs*/
+    a.nav-link {
+        border: 2px solid var(--primary-color);
+        border-radius: 25px;
+        font-weight: var(--bold-font);
+    }
+    a.nav-link:hover {
+        color: var(--secondary-color);
+        background-color: var(--primary-color);
+    }
+    a.#sign-in-nav-item {
+        border: none;
+        color: var(--primary-color);
+    }
+        a.#sign-in-nav-item:hover {
+            color: var(--secondary-color);
+        }
+
+nav {
+    background: #F3EEE9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    box-shadow: 1px 2px 1px #000;
+    /*Make navbar sticky*/
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*Below is Hero Section*/
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.9rem;
+    max-width: 1100px;
+    margin: 2rem auto -6rem;
+}
+
+.intro-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.intro-text h3 {
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    line-height: var(--line-height);
+}
+
+.hear {
+    color: var(--primary-color);
+}
+
+.connecting {
+    color: var(--secondary-color);
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 0.6rem;
+    border: none;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.red {
+    background-color: var(--secondary-color);
+    margin-right: 1rem;
+}
+
+    .red:hover {
+        background-color: #f1262d;
+        color: #fff;
+    }
+
+    /*Hero section ends*/

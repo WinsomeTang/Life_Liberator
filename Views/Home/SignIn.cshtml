@@ -18,11 +18,16 @@
         Welcome Back:)
     </section>
 
-    <form asp-action="SignIn" method="post" >
+    <form asp-action="SignIn" method="post">
         <div asp-validation-summary="All"></div>
         <div class="form-group">
             <label asp-for="Email" class="form-label">Email:</label>
             <input asp-for="Email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password" class="form-label">Password:</label>
+            <input asp-for="Password" class="form-control" />
         </div>
 
         <a class="log-in-page-btn" asp-action="Dashboard">Log In</a>

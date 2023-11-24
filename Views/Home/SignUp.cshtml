@@ -4,7 +4,6 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
 </head>
 <body>
     <section>
-       Sign Up to Continue
+        <h1> Sign Up to Continue</h1>
     </section>
 
     <form asp-action="SignUp" method="post" class="m-2">
@@ -59,7 +58,7 @@
             <label asp-for="Password" class="form-label">Password:</label>
             <input asp-for="Password" class="form-control" />
         </div>
-        <a class="sign-up-page-btn" asp-action="SignIn">Get Started</a>
+        <button class="sign-up-page-btn" >Get Started</button>
 
     </form>
 </body>

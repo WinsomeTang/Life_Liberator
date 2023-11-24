@@ -2,8 +2,6 @@
     Layout = null;
 }
 
-@using Microsoft.AspNetCore.Mvc
-
 <!DOCTYPE html>
 
 <!--Intro Menu Page-->
@@ -12,37 +10,42 @@
     <meta charset="UTF-8">
     <meta name="author" content="Winsome Tang" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
     <title>Welcome to Life Liberator</title>
 </head>
 <body>
+    <!--Navbar-->
+    <!-- Update the existing code in your HTML file -->
 
-    <div class="landing-nav-bar">
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a asp-action="SignIn" id="sign-in-btn">Sign In</a>
-    </div>
+    <nav class="landing-nav-bar">
+        <a class="home-nav-link" asp-action="Index">
+            <h1>
+                Life Liberator
+            </h1>
+        </a>
 
-    <section>
-        <div class="hero-section">
-            <h1>Find Balance, Achieve Success</h1>
-            <p>Your all-in-one solution for work-life balance. Plan your schedule efficiently and live a more fulfilling life.</p>
+        <ul>
+            <li class="nav-item"><a asp-action="SignIn" class="nav-link" id="sign-in-nav-item">Log In</a></li>
+            <li class="nav-item"><a asp-action="SignUp" class="nav-link">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="intro-text">
+            <h1>
+                <span class="hear"> Find Balance </span> <br />
+                <span class="hear"> Achieve Success</span>
+            </h1>
+            <p>
+                Your all-in-one solution for work-life balance.<br />
+                Plan your schedule efficiently and live a more fulfilling life.
+            </p>
+            <a class="btn red" asp-action="SignUp">Get Started !</a>
+        </div>
+        <div class="i-frame">
+            <p>Insert a picture here</p>
         </div>
     </section>
-    <section>
-        <div class="cta-section">
-            <h2>Start Your Journey Today</h2>
-            <p>Join LifeLiberator and take control of your time. Sign up now for a more balanced and productive life.</p>
-            <a asp-action="SignUp" class="sign-up-btn">Sign Up</a>
-
-        </div>
-    </section>
-
-    <footer>
-        &copy; 2023 Life Liberator. All rights reserved.
-    </footer>
 </body>
 </html>
 

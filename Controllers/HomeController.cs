@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Life_Liberator.Models;
 using Life_Liberator.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Life_Liberator.Controllers;
 
@@ -22,6 +23,24 @@ public class HomeController : Controller
     public IActionResult SignUp()
     {
         return View(); // Assuming you have a corresponding SignUp.cshtml view
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult SignUp(User user)
+    {
+        if (ModelState.IsValid)
+        {
+            // Save user to the database
+            _appDbContext.Users.Add(user);
+            _appDbContext.SaveChanges();
+
+            // Redirect to the login page or another appropriate page
+            return View("Dashboard", user);
+        }
+
+        // If ModelState is not valid, return to the signup page with validation errors
+        return View(user);
     }
 
     public IActionResult SignIn()
