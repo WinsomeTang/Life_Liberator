@@ -94,23 +94,32 @@ nav {
 
 /*Below is Hero Section*/
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.9rem;
-    max-width: 1100px;
-    margin: 2rem auto -6rem;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr; 
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+.intro-text {
+    grid-column: 1 / span 1;
+}
+
+.i-frame {
+    grid-column: 2 / span 1;
 }
 
 .intro-text h1 {
     font-size: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 6rem;
-
+    margin-bottom: 1.5rem;
+    margin-right: 2rem;
 }
 
-.intro-text h3 {
-    margin-bottom: 0.5rem;
+img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
 }
 
 .hero p {
@@ -143,9 +152,5 @@ nav {
     }
 
 img {
-    margin-left: 6rem;
     border: 1px solid var(--secondary-color);
-    border-radius: 20px;
 }
-
-    /*Hero section ends*/
