@@ -22,7 +22,7 @@ public class HomeController : Controller
 
     public IActionResult SignUp()
     {
-        return View(); // Assuming you have a corresponding SignUp.cshtml view
+        return View();
     }
 
     [HttpPost]
@@ -45,7 +45,7 @@ public class HomeController : Controller
 
     public IActionResult SignIn()
     {
-        return View(); // Assuming you have a corresponding SignUp.cshtml view
+        return View();
     }
 
     public IActionResult Privacy()
