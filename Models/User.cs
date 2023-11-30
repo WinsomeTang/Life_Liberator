@@ -18,11 +18,7 @@ namespace Life_Liberator.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
-        public ProgrammingLanguage ProgrammingLanguage { get; set; }
-
         public ProficiencyLevel ProficiencyLevel { get; set; }
-
-        public required string WorkTimeSlots { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]

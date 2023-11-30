@@ -1,0 +1,30 @@
+﻿@model Life_Liberator.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up!</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <section>
+        <h1> What's your schedule like</h1> <br/>
+        <h3> Let's figure out your availabilities</h3>
+    </section>
+
+    <form asp-action="ScheduleForm" method="post" class="m-2">
+        <div asp-validation-summary="All"></div>
+        <!--Schedule Form here allows user to mark down their work times and
+            allows devs to figure out the projects that can be accomplished
+            within the timeslots that user is free for.-->
+        <button class="sign-up-page-btn" asp-action="ScheduleForm">Get Started</button>
+
+    </form>
+</body>
+</html>

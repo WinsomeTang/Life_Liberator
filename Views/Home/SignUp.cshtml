@@ -31,34 +31,24 @@
             <label asp-for="Email" class="form-label">Email:</label>
             <input asp-for="Email" class="form-control" />
         </div>
-        <div class="form-group">
-            <label asp-for="ProgrammingLanguage" class="form-label">Programming Language</label>
-            <select asp-for="ProgrammingLanguage" class="form-select">
-                <option value="">Select Programming Language</option>
-                <option value="@(ProgrammingLanguage.CSharp)">C Sharp</option>
-                <option value="@(ProgrammingLanguage.Python)">Python</option>
-                <option value="@(ProgrammingLanguage.Java)">Java</option>
-            </select>
-        </div>
+
         <div class="form-group">
             <label asp-for="ProficiencyLevel" class="form-label">Proficiency Level:</label>
             <select asp-for="ProficiencyLevel" class="form-select">
-                <option value="">Select Programming Language</option>
+                <option value="">Select Programming Proficiency Level: </option>
                 <option value="@(ProficiencyLevel.Beginner)">Newb</option>
                 <option value="@(ProficiencyLevel.Intermediate)">I know some stuff</option>
                 <option value="@(ProficiencyLevel.Intermediate)">I know my shit</option>
             </select>
-        </div>
-        <div class="form-group">
-            <label asp-for="WorkTimeSlots" class="form-label">Work Time Slot:</label>
-            <input asp-for="WorkTimeSlots" class="form-control" />
         </div>
 
         <div class="form-group">
             <label asp-for="Password" class="form-label">Password:</label>
             <input asp-for="Password" class="form-control" />
         </div>
-        <button class="sign-up-page-btn" >Get Started</button>
+
+
+        <button class="sign-up-page-btn" asp-action="ScheduleForm">Get Started</button>
 
     </form>
 </body>
