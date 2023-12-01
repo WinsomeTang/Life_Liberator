@@ -6,7 +6,7 @@
     --bold-font: 600;
     --bolder-font: 900;
     --primary-color: #000;
-    --secondary-color: #F3EEE9;
+    --secondary-color: #f4f5f7;
     --line-height: 2rem;
     --transition: 0.4s ease-in;
 }
@@ -14,7 +14,7 @@
 /* Smooth scroll effect */
 html {
     scroll-behavior: smooth;
-    background-color: #F3EEE9;
+    background-color: var(--secondary-color);
 }
 
 /* Resets */
@@ -27,7 +27,7 @@ html {
 
 body {
     font-family: "Roboto", sans-serf;
-    color: #F3EEE9;
+    background-color: var(--secondary-color);
 }
 
 ul li {
@@ -81,7 +81,7 @@ a {
         }
 
 nav {
-    background: #F3EEE9;
+    background: var(--secondary-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,7 +104,7 @@ nav {
     padding: 0 1rem;
 }
 
-.intro-text{
+.intro-text {
     grid-column: 1 / span 1;
 }
 
@@ -144,16 +144,27 @@ img {
 }
 
 .sign-up {
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
     margin-right: 1rem;
 }
 
     .sign-up:hover {
-        color: var(--primary-color);
-        background-color: var(--secondary-color);
+        color: var(--secondary-color);
+        background-color: var(--primary-color);
     }
 
 img {
     border: 1px solid var(--secondary-color);
+}
+
+/*End index section*/
+
+/*Start SignUp page*/
+.sign-up-title {
+    background-color: var(--secondary-color);
+}
+
+form {
+    background-color: var(--secondary-color);
 }

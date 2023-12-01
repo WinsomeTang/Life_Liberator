@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace Life_Liberator.Models
 {
 
     public class User
     {
-        public int Id { get; set; }
+        public int Id { get; set; } //primary key
 
         [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
@@ -23,5 +25,7 @@ namespace Life_Liberator.Models
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        // Navigation property for associated schedules
+        public List<Schedule> CustomSchedules { get; set; }
     }
 }

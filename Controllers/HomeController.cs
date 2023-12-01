@@ -36,13 +36,26 @@ public class HomeController : Controller
             _appDbContext.SaveChanges();
 
             // Redirect to the login page or another appropriate page
-            return View("Dashboard", user);
+            return RedirectToAction("ScheduleForm", new { id = user.Id });
         }
 
         // If ModelState is not valid, return to the signup page with validation errors
         return View(user);
     }
 
+    public IActionResult ScheduleForm(int id)
+    {
+        // Retrieve the user based on the provided userId
+        User user = _appDbContext.Users.Include(u => u.CustomSchedules).FirstOrDefault(u => u.Id == id);
+
+        if (user == null)
+        {
+            // Handle the case where the user is not found
+            return RedirectToAction("SignUp");
+        }
+
+        return View(user.CustomSchedules);
+    }
     public IActionResult SignIn()
     {
         return View();

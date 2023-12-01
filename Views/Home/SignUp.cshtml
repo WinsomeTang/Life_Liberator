@@ -8,15 +8,17 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Sign Up!</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
+    <title>Sign Up | Life Liberator</title>
 </head>
 <body>
-    <section>
-        <h1> Sign Up to Continue</h1>
-    </section>
+    <!--For going back to index-->
 
+    <section class="sign-up-title">
+        <h1>A little bit about you :)</h1>
+        <p> Let's create your account</p>
+    </section>
     <form asp-action="SignUp" method="post" class="m-2">
         <div asp-validation-summary="All"></div>
         <div class="form-group">
@@ -40,15 +42,13 @@
                 <option value="@(ProficiencyLevel.Intermediate)">I know some stuff</option>
                 <option value="@(ProficiencyLevel.Intermediate)">I know my shit</option>
             </select>
-        </div>
 
+        </div>
         <div class="form-group">
             <label asp-for="Password" class="form-label">Password:</label>
             <input asp-for="Password" class="form-control" />
         </div>
-
-
-        <button class="sign-up-page-btn" asp-action="ScheduleForm">Get Started</button>
+        <button class="sign-up-page-btn" asp-action="ScheduleForm">Next</button>
 
     </form>
 </body>
