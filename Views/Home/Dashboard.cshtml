@@ -27,9 +27,43 @@
     <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <section>
-        <p>hello epic world :D</p>
+    <!-- Welcome head that runs along the right 85% of the screen-->
+    <h1 id="welcome-header">Welcome, Michael!</h1>
+
+    <!-- Sidebar section that is the leftmost 15% of the screen with 3 links to Modify Schedule, Projects, Settings
+         At the bottom left corner is my name (Michael)-->
+    <section id="sidebar">
+        <a href="#">Modify Schedule</a>
+        <a href="#">Projects</a>
+        <a href="#">Settings</a>
+        <div id="sidebar-name">Michael</div>
+    </section>
+
+    <!-- main view where it has weekly calender view starting from sunday,monday,etc.
+         should have 24 time slot boxes in 1 hour intervals starting at 1am, 2am, etc. all the way to 11pm for each day of the week.-->
+    <section id="calendar">
+        <div id="days">
+            <div class="day">Sunday</div>
+            <div class="day">Monday</div>
+            <div class="day">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+            <div class="day">Friday</div>
+            <div class="day">Saturday</div>
+        </div>
+
+        <div id="time-slots">
+            <!-- Generate time slots for each day -->
+            @for (int hour = 1; hour <= 12; hour++)
+            {
+                <div class="time-slot">@hour:00 am</div>
+            }
+
+            @for (int hour = 1; hour <= 12; hour++)
+            {
+                <div class="time-slot">@hour:00 pm</div>
+            }
+        </div>
     </section>
 </body>
 </html>

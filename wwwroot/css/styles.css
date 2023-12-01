@@ -168,3 +168,74 @@ img {
 form {
     background-color: var(--secondary-color);
 }
+
+
+/* DASHBOARD STYLES BELOW */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#welcome-header {
+    text-align: right;
+    margin: 20px;
+}
+
+#sidebar {
+    width: 15%;
+    background-color: #f4f4f4;
+    float: left;
+    height: 100vh;
+}
+
+#sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+#sidebar a:hover {
+    background-color: #ddd;
+}
+
+#sidebar-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #333;
+}
+
+#calendar {
+    width: 85%;
+    float: left;
+    padding: 20px;
+}
+
+#days {
+    display: flex;
+}
+
+.day {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+#time-slots {
+    display: flex;
+}
+
+.time-slot {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
