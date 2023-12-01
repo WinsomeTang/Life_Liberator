@@ -25,6 +25,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Dashboard()
+    {
+        return View();
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult SignUp(User user)
