@@ -17,7 +17,6 @@
     }
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,31 +38,43 @@
         <div id="sidebar-name">Michael</div>
     </section>
 
-    <!-- main view where it has weekly calender view starting from sunday,monday,etc.
-         should have 24 time slot boxes in 1 hour intervals starting at 1am, 2am, etc. all the way to 11pm for each day of the week.-->
+    <!-- main view where it has a weekly calendar view starting from Sunday, Monday, etc.
+         should have 24 time slot boxes in 1-hour intervals starting at 1 am, 2 am, etc. all the way to 11 pm for each day of the week.-->
     <section id="calendar">
         <div id="days">
-            <div class="day">Sunday</div>
-            <div class="day">Monday</div>
-            <div class="day">Tuesday</div>
-            <div class="day">Wednesday</div>
-            <div class="day">Thursday</div>
-            <div class="day">Friday</div>
-            <div class="day">Saturday</div>
+            @for (int i = 0; i < 7; i++)
+            {
+                <div class="day">@GetDayName(i)</div>
+            }
         </div>
 
         <div id="time-slots">
-            <!-- Generate time slots for each day -->
             @for (int hour = 1; hour <= 12; hour++)
             {
-                <div class="time-slot">@hour:00 am</div>
+                <div class="hour">@hour:00 am</div>
+                @for (int day = 0; day < 7; day++)
+                {
+                    <div class="time-slot"></div>
+                }
             }
 
             @for (int hour = 1; hour <= 12; hour++)
             {
-                <div class="time-slot">@hour:00 pm</div>
+                <div class="hour">@hour:00 pm</div>
+                @for (int day = 0; day < 7; day++)
+                {
+                    <div class="time-slot"></div>
+                }
             }
         </div>
     </section>
+
+    @functions {
+        string GetDayName(int index)
+        {
+            // Use the current day of the week to get the name
+            return DateTime.Today.AddDays(index).ToString("dddd");
+        }
+    }
 </body>
 </html>

@@ -170,6 +170,9 @@ form {
 }
 
 
+
+
+
 /* DASHBOARD STYLES BELOW */
 
 body {
@@ -217,6 +220,7 @@ body {
 
 #days {
     display: flex;
+    border-bottom: 1px solid #ddd;
 }
 
 .day {
@@ -224,18 +228,25 @@ body {
     text-align: center;
     padding: 10px;
     background-color: #f4f4f4;
-    border-bottom: 1px solid #ddd;
 }
 
 #time-slots {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.hour {
+    text-align: center;
+    padding: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
 }
 
 .time-slot {
     flex: 1;
-    text-align: center;
-    padding: 10px;
     border: 1px solid #ddd;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
