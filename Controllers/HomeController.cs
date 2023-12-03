@@ -30,6 +30,12 @@ public class HomeController : Controller
         return View();
     }
 
+
+    public IActionResult ScheduleForm()
+    {
+        return View();
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult SignUp(User user)
