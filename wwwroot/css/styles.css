@@ -118,7 +118,7 @@ nav {
     margin-right: 2rem;
 }
 
-#index-img {
+img {
     width: 100%;
     height: auto;
     border: 1px solid var(--secondary-color);
@@ -215,7 +215,7 @@ body {
 #calendar {
     width: 85%;
     float: left;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 #days {
@@ -250,106 +250,3 @@ body {
     box-sizing: border-box;
 }
 
-/* DASHBOARD STYLES BELOW */
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-#logo {
-    position: absolute;
-    top: 2%;
-    left: 3%;
-}
-
-#logo img {
-    max-width: 10%;
-    max-height: 8%;
-}
-
-#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
-}
-
-#welcome-header {
-    text-align: left;
-}
-
-#current-date-time {
-    text-align: right;
-    color: #666;
-}
-
-#sidebar {
-    margin-top: 5rem;
-    width: 15%;
-    background-color: #f4f4f4;
-    float: left;
-    height: 100vh;
-}
-
-#sidebar a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-bottom: 1px solid #ddd;
-}
-
-#sidebar a:hover {
-    background-color: #ddd;
-}
-
-#sidebar-name {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: #333;
-}
-
-#calendar {
-    width: 85%;
-    float: left;
-    padding: 0 20px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-}
-
-#days {
-    display: flex;
-    border-bottom: 1px solid #ddd;
-}
-
-.day {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    padding-top: 0;
-    background-color: #f4f4f4;
-}
-
-#time-slots {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-}
-
-.hour {
-    text-align: center;
-    padding: 5px;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-}
-
-.time-slot {
-    flex: 1;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    box-sizing: border-box;
-}
