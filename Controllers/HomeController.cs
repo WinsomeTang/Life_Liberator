@@ -38,29 +38,64 @@ public class HomeController : Controller
         {
             // Save user to the database
             _appDbContext.Users.Add(user);
-            _appDbContext.SaveChanges();
+            Console.WriteLine($"User {user.FirstName} {user.LastName} signed up successfully.");
 
-            // Redirect to the login page or another appropriate page
-            return RedirectToAction("ScheduleForm", new { id = user.Id });
+
+            _appDbContext.SaveChanges();
+            Console.WriteLine($"User {user.FirstName} {user.LastName} signed up successfully.");
+            Console.WriteLine($"User has id: {user.UserId}");
+            var schedule = new Schedule { UserId = user.UserId };
+            Console.WriteLine($"User has id: {user.UserId}");
+            // Redirect to the schduleform page or another appropriate page
+            return RedirectToAction("ScheduleForm", schedule);
         }
 
         // If ModelState is not valid, return to the signup page with validation errors
         return View(user);
     }
 
-    public IActionResult ScheduleForm(int id)
+    [HttpPost]
+    public IActionResult ScheduleForm(int userId, Schedule schedule, List<string> additionalStartTimes, List<string> additionalEndTimes)
     {
-        // Retrieve the user based on the provided userId
-        User user = _appDbContext.Users.Include(u => u.CustomSchedules).FirstOrDefault(u => u.Id == id);
-
-        if (user == null)
+        if (ModelState.IsValid)
         {
-            // Handle the case where the user is not found
-            return RedirectToAction("SignUp");
+            // Clear existing schedules for the user (optional, based on your logic)
+            var existingSchedules = _appDbContext.CustomSchedule.Where(s => s.UserId == userId).ToList();
+            _appDbContext.CustomSchedule.RemoveRange(existingSchedules);
+
+            // Loop through the provided start and end times to create timeslots
+            for (int i = 0; i < additionalStartTimes.Count; i++)
+            {
+                string startTime = additionalStartTimes[i];
+                string endTime = additionalEndTimes[i];
+
+                // Create a new schedule for each timeslot
+                var newSchedule = new Schedule
+                {
+                    UserId = userId,
+                    dayOfWeek = schedule.dayOfWeek,
+                    StartTime = startTime,
+                    EndTime = endTime,
+                    // Auto-increment TimeBlockId based on the number of timeslots
+                    TimeBlockId = i + 1 // +1 because indexing starts from 0
+                };
+
+                // Save schedule to the database
+                _appDbContext.CustomSchedule.Add(newSchedule);
+            }
+
+            _appDbContext.SaveChanges();
+
+            // Redirect to another page or take further action
+            return RedirectToAction("Index");
         }
 
-        return View(user.CustomSchedules);
+        // If ModelState is not valid, return to the schedule form page with validation errors
+        ViewBag.UserId = userId; // Pass the user's ID to the view
+        return View(schedule);
     }
+
+
     public IActionResult SignIn()
     {
         return View();

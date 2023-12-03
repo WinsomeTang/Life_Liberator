@@ -1,4 +1,4 @@
-﻿@model Life_Liberator.Models.User
+﻿@model Life_Liberator.Models.Schedule
 
 @{
     Layout = null;
@@ -18,13 +18,39 @@
         <h3> Let's figure out your availabilities</h3>
     </section>
 
-    <form asp-action="ScheduleForm" method="post" class="m-2">
-        <div asp-validation-summary="All"></div>
-        <!--Schedule Form here allows user to mark down their work times and
-            allows devs to figure out the projects that can be accomplished
-            within the timeslots that user is free for.-->
-        <button class="sign-up-page-btn" asp-action="Dashboard">Get Started</button>
+    <!-- Your ScheduleForm form here -->
+    <form asp-action="ScheduleForm" method="post">
+        <div>
+            <label for="dayOfWeek">Day of Week:</label>
+            <select asp-for="dayOfWeek" class="form-control">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+            <span asp-validation-for="dayOfWeek" class="text-danger"></span>
+        </div>
 
+        <div>
+            <label for="StartTime">Start Time:</label>
+            <input asp-for="StartTime" type="time" class="form-control" />
+            <span asp-validation-for="StartTime" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="EndTime">End Time:</label>
+            <input asp-for="EndTime" type="time" class="form-control" />
+            <span asp-validation-for="EndTime" class="text-danger"></span>
+        </div>
+
+        <input type="hidden" asp-for="UserId" />
+
+        <a class="btn sign-up" asp-action="Dashboard"> Get Started !</a>
     </form>
+
 </body>
 </html>
+

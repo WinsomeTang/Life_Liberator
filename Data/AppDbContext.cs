@@ -15,16 +15,16 @@ namespace Life_Liberator.Data
         public DbSet<Schedule> CustomSchedule { get; set; }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Configure foreign key relationship
-            modelBuilder.Entity<Schedule>()
-                .HasOne(s => s.User)
-                .WithMany(u => u.CustomSchedules)
-                .HasForeignKey(s => s.Id);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    // Configure foreign key relationship
+        //    modelBuilder.Entity<Schedule>()
+        //        .HasOne(s => s.User)
+        //        .WithMany(u => u.CustomSchedules)
+        //        .HasForeignKey(s => s.UserId);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
     }
 }

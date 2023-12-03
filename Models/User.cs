@@ -8,7 +8,8 @@ namespace Life_Liberator.Models
 
     public class User
     {
-        public int Id { get; set; } //primary key
+        [Key]
+        public int UserId { get; set; } //primary key
 
         [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
@@ -26,6 +27,6 @@ namespace Life_Liberator.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
         // Navigation property for associated schedules
-        public List<Schedule> CustomSchedules { get; set; }
+        //public List<Schedule> CustomSchedules { get; set; }
     }
 }

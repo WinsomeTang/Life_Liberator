@@ -7,8 +7,7 @@ namespace Life_Liberator.Models
     public class Schedule
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ScheduleId { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }
