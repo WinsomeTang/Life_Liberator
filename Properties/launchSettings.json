@@ -27,7 +27,7 @@
     "Life_Liberator": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:1611",
+      "applicationUrl": "http://localhost:51320",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
