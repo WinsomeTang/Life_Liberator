@@ -26,9 +26,10 @@
     <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
 </head>
 <body>
-    <!-- Welcome head that runs along the right 85% of the screen-->
-    <h1 id="welcome-header">Welcome, Michael!</h1>
-
+    <!-- Logo in the top left corner -->
+    <div id="logo">
+        <img src="~/logo.png" alt="Your Logo">
+    </div>
     <!-- Sidebar section that is the leftmost 15% of the screen with 3 links to Modify Schedule, Projects, Settings
          At the bottom left corner is my name (Michael)-->
     <section id="sidebar">
@@ -37,6 +38,12 @@
         <a href="#">Settings</a>
         <div id="sidebar-name">Michael</div>
     </section>
+
+    <!-- Welcome head that runs along the right 85% of the screen-->
+    <div id="header">
+        <h1 id="welcome-header">Welcome, Michael!</h1>
+        <div id="current-date-time">Current Date and Time</div>
+    </div>
 
     <!-- main view where it has a weekly calendar view starting from Sunday, Monday, etc.
          should have 24 time slot boxes in 1-hour intervals starting at 1 am, 2 am, etc. all the way to 11 pm for each day of the week.-->
