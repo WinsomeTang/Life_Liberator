@@ -36,8 +36,6 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            // Additional validation logic (e.g., check for unique username or email)
-
             // Save user to the database
             _appDbContext.Users.Add(user);
             _appDbContext.SaveChanges();
@@ -58,10 +56,25 @@ public class HomeController : Controller
         if (user == null)
         {
             // Handle the case where the user is not found
-            return View("UserNotFound"); // Create a UserNotFound view for a better user experience
+            return RedirectToAction("SignUp");
         }
 
         return View(user.CustomSchedules);
     }
+    public IActionResult SignIn()
+    {
+        return View();
+    }
 
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
 }
+
