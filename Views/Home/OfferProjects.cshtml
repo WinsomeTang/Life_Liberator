@@ -1,0 +1,53 @@
+﻿@model Life_Liberator.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Winsome Tang" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
+    <title>Offer Projects | Life Liberator</title>
+</head>
+<body>
+    <section class="offer-projects-title">
+        <h1>Available Projects</h1>
+        <p>Review and choose your projects</p>
+    </section>
+
+    <div class="time-slots">
+        @if (Model != null && !string.IsNullOrEmpty(Model.Schedule))
+        {
+            @foreach (var timeBlock in Model.Schedule.Split('|'))
+            {
+                var timeParts = timeBlock.Split('-');
+                var startTime = timeParts[0];
+                var endTime = timeParts[1];
+
+                <div class="time-slot">
+                    <label>Time Slot: @startTime - @endTime</label>
+                    <!-- You can add your task prompt and buttons here -->
+                    <div>
+                        <label>Task: </label>
+                        <input type="text" readonly />
+                    </div>
+                    <div>
+                        <button class="btn btn-success">Accept</button>
+                        <button class="btn btn-danger">Decline</button>
+                        <button class="btn btn-primary">Another Task</button>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No schedule available.</p>
+        }
+    </div>
+</body>
+</html>

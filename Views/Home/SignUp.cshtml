@@ -7,48 +7,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Winsome Tang" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
     <title>Sign Up | Life Liberator</title>
 </head>
 <body>
-    <!--For going back to index-->
-
     <section class="sign-up-title">
         <h1>A little bit about you :)</h1>
         <p> Let's create your account</p>
     </section>
-    <form asp-action="SignUp" method="post" class="m-2">
+    <form asp-action="OfferProjects" method="post" class="m-2">
         <div asp-validation-summary="All"></div>
         <div class="form-group">
             <label asp-for="FirstName" class="form-label">First Name:</label>
-            <input asp-for="FirstName" class="form-control" />
+            <input asp-for="FirstName" class="form-control" id="FirstName" name="FirstName" />
         </div>
         <div class="form-group">
             <label asp-for="LastName" class="form-label">Last name:</label>
-            <input asp-for="LastName" class="form-control" />
+            <input asp-for="LastName" class="form-control" id="LastName" name="LastName" />
         </div>
         <div class="form-group">
             <label asp-for="Email" class="form-label">Email:</label>
-            <input asp-for="Email" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="ProficiencyLevel" class="form-label">Proficiency Level:</label>
-            <select asp-for="ProficiencyLevel" class="form-select">
-                <option value="">Select Programming Proficiency Level: </option>
-                <option value="@(ProficiencyLevel.Beginner)">Newb</option>
-                <option value="@(ProficiencyLevel.Intermediate)">I know some stuff</option>
-                <option value="@(ProficiencyLevel.Intermediate)">I know my shit</option>
-            </select>
-
+            <input asp-for="Email" class="form-control" id="Email" name="Email" />
         </div>
         <div class="form-group">
             <label asp-for="Password" class="form-label">Password:</label>
-            <input asp-for="Password" class="form-control" />
+            <input asp-for="Password" class="form-control" id="Password" name="Password" />
         </div>
-        <button class="sign-up-page-btn" asp-action="SignUp">Next</button>
+        <div class="form-group">
+            <label asp-for="ProficiencyLevel" class="form-label" for="ProficiencyLevel">Proficiency Level:</label>
+            <select asp-for="ProficiencyLevel" class="form-select" id="ProficiencyLevel" name="ProficiencyLevel">
+                <option value="">Select Programming Proficiency Level: </option>
+                <option value="@(ProficiencyLevel.Beginner)">Newb</option>
+                <option value="@(ProficiencyLevel.Intermediate)">I know some stuff</option>
+                <option value="@(ProficiencyLevel.Advanced)">I know my shit</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="startTime" class="form-label">Start Time:</label>
+            <input type="text" class="form-control" id="startTime" name="startTime" />
+        </div>
+        <div class="form-group">
+            <label for="endTime" class="form-label">End Time:</label>
+            <input type="text" class="form-control" id="endTime" name="endTime" />
+        </div>
+
+        <div id="timeBlocks"></div>
+        <button type="button" class="btn btn-secondary" onclick="addTimeBlock(); updateScheduleField();">Add Time Block</button>
+
+        <!-- Hidden field to store the Schedule -->
+        <input type="hidden" asp-for="Schedule" id="Schedule" name="Schedule" />
+
+        <button class="sign-up-page-btn" type="submit" asp-action="SignUp" formnovalidate>Next</button>
+
+        <script>
+            var timeBlockCounter = 1;
+            var timeBlocks = [];
+
+            function addTimeBlock() {
+                var timeBlockFields = document.getElementById("timeBlocks");
+                var startTimeInput = document.createElement("input");
+                var endTimeInput = document.createElement("input");
+
+                startTimeInput.type = "text";
+                startTimeInput.className = "form-control";
+                startTimeInput.name = "startTime";
+                endTimeInput.type = "text";
+                endTimeInput.className = "form-control";
+                endTimeInput.name = "endTime";
+
+                timeBlockFields.appendChild(document.createElement("br")); // Add line break for separation
+                timeBlockFields.appendChild(startTimeInput);
+                timeBlockFields.appendChild(endTimeInput);
+
+                // Add the time block to the array
+                timeBlocks.push({ startTime: startTimeInput, endTime: endTimeInput });
+            }
+
+            function updateScheduleField() {
+                var scheduleField = document.getElementById("Schedule");
+
+                // Reset and concatenate all time blocks into a single string
+                scheduleField.value = timeBlocks.map(tb => tb.startTime.value + "-" + tb.endTime.value).join("|");
+            }
+        </script>
 
     </form>
 </body>
