@@ -21,7 +21,6 @@
     </section>
 
     <form asp-action="SignIn" method="post">
-        <div asp-validation-summary="All"></div>
         <div class="form-group">
             <label asp-for="Email" class="form-label">Email:</label>
             <input asp-for="Email" class="form-control" />
@@ -32,8 +31,14 @@
             <input asp-for="Password" class="form-control" />
         </div>
 
-        <a class="log-in-page-btn" asp-action="Dashboard">Log In</a>
-
+        <button type="submit" class="log-in-page-btn">Log In</button>
     </form>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
 </body>
 </html>

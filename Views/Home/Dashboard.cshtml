@@ -28,15 +28,15 @@
 </head>
 <body>
     <!-- Welcome head that runs along the right 85% of the screen-->
-    <h1 id="welcome-header">Welcome, Michael!</h1>
+    <h1 id="welcome-header">Welcome, @ViewBag.FirstName! Your User ID is @ViewBag.UserId</h1>
 
     <!-- Sidebar section that is the leftmost 15% of the screen with 3 links to Modify Schedule, Projects, Settings
-         At the bottom left corner is my name (Michael)-->
+         At the bottom left corner is the user's name-->
     <section id="sidebar">
         <a href="#">Modify Schedule</a>
         <a href="#">Projects</a>
         <a href="#">Settings</a>
-        <div id="sidebar-name">Michael</div>
+        <div id="sidebar-name">@ViewBag.FirstName</div>
     </section>
 
     <!-- main view where it has a weekly calendar view starting from Sunday, Monday, etc.

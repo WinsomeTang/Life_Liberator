@@ -29,10 +29,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Dashboard()
-    {
-        return View();
-    }
 
 
     public IActionResult OfferProjects()
@@ -54,6 +50,11 @@ public class HomeController : Controller
                 // Add user to the database
                 _appDbContext.Users.Add(user);
                 _appDbContext.SaveChanges();
+
+
+                // Store UserId and FirstName in session
+                HttpContext.Session.SetInt32("UserId", user.UserId);
+                HttpContext.Session.SetString("FirstName", user.FirstName);
 
                 // Redirect to OfferProjects.cshtml
                 return RedirectToAction("OfferProjects", new { userId = user.UserId });
@@ -112,11 +113,57 @@ public class HomeController : Controller
         return string.Join("|", timeBlocks);
     }
 
-
-    public IActionResult SignIn()
+    public IActionResult SignIn(string email, string password)
     {
+        if (ModelState.IsValid)
+        {
+            // Check if there's a user with the provided email and password
+            var authenticatedUser = _appDbContext.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+
+            if (authenticatedUser != null)
+            {
+                Console.WriteLine($"Found user: {authenticatedUser.UserId}, {authenticatedUser.Email}");
+
+                // Store UserId and FirstName in session
+                HttpContext.Session.SetInt32("UserId", authenticatedUser.UserId);
+                HttpContext.Session.SetString("FirstName", authenticatedUser.FirstName);
+
+
+
+                return RedirectToAction("Dashboard");
+
+            }
+
+            // If not authenticated, display an error message
+            ViewBag.ErrorMessage = "Invalid email or password.";
+        }
         return View();
     }
+
+    public IActionResult Dashboard()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+        var firstName = HttpContext.Session.GetString("FirstName") ?? "User";
+
+        // Fetch user details from the database
+        var user = _appDbContext.Users.FirstOrDefault(u => u.UserId == userId);
+
+        if (user != null)
+        {
+            ViewBag.UserId = user.UserId;
+            ViewBag.FirstName = user.FirstName;
+            // Add other properties as needed
+        }
+        else
+        {
+            // Handle the case where the user is not found
+            ViewBag.UserId = 0;
+            ViewBag.FirstName = "User";
+        }
+
+        return View();
+    }
+  
 
     public IActionResult Privacy()
     {
