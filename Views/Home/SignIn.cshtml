@@ -13,32 +13,42 @@
     <meta name="viewport" content="width=device-width" />
     <title>Sign In | Life Liberator</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
+
 </head>
 <body>
-    <section>
-        Welcome Back:D
-    </section>
+    <a class="home-nav-link" asp-action="Index">
+        <img class="logo-img" src="~/images/LifeLiberator_logo.png" />
+    </a>
+    <div class="container">
+        <section class="sign-in-section">
+            Welcome Back! 👋
+        </section>
 
-    <form asp-action="SignIn" method="post">
-        <div class="form-group">
-            <label asp-for="Email" class="form-label">Email:</label>
-            <input asp-for="Email" class="form-control" />
-        </div>
+        <form asp-action="SignIn" method="post">
+            <div class="sign-in-group">
+                <label asp-for="Email" class="sign-in-label">Email</label>
+                <input asp-for="Email" class="sign-in-control" placeholder="Enter your email" />
+            </div>
 
-        <div class="form-group">
-            <label asp-for="Password" class="form-label">Password:</label>
-            <input asp-for="Password" class="form-control" />
-        </div>
+            <div class="sign-in-group">
+                <label asp-for="Password" class="sign-in-label">Password</label>
+                <input asp-for="Password" class="sign-in-control" placeholder="Enter your password" />
+            </div>
+            <div class="sign-in-group">
+                <button type="submit" class="log-in-page-btn">Log In</button>
+            </div>
 
-        <button type="submit" class="log-in-page-btn">Log In</button>
-    </form>
+        </form>
 
-    @if (ViewBag.ErrorMessage != null)
-    {
-        <div class="alert alert-danger" role="alert">
-            @ViewBag.ErrorMessage
-        </div>
-    }
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+    </div>
+
+
 </body>
 </html>

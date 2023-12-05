@@ -51,7 +51,6 @@ a.home-nav-link {
     color: var(--primary-color);
 }
 
-
 a {
     text-decoration: none;
     margin-top: 1rem;
@@ -73,6 +72,7 @@ a {
         border-radius: 25px;
         color: var(--primary-color);
         background-color: var(--secondary-color);
+        transition: background-color 0.3s ease;
     }
 
         a#sign-up-nav-item:hover {
@@ -94,6 +94,18 @@ nav {
     z-index: 1;
 }
 
+.logo-img {
+    max-height: 3rem; /* Adjust the maximum height as needed */
+    width: auto;
+    margin-right: 1rem;
+    position: absolute;
+}
+
+.logo-img-index {
+    max-height: 3rem; /* Adjust the maximum height as needed */
+    width: auto;
+    margin-right: 1rem;
+}
 /*Below is Hero Section*/
 .hero {
     display: grid;
@@ -147,6 +159,7 @@ img {
     color: var(--primary-color);
     background-color: var(--secondary-color);
     margin-right: 1rem;
+    transition: background-color 0.3s ease;
 }
 
     .sign-up:hover {
@@ -160,21 +173,250 @@ img {
 
 /*End index section*/
 
+
 /*Start SignUp page*/
-.sign-up-title {
+.sign-up-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 16px; /* Increased border-radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #2F2E41;
+    margin-top: 100px;
+}
+.sign-up-title p {
     background-color: var(--secondary-color);
+
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.sign-up-title h1 {
+    background-color: var(--secondary-color);
+    margin-top: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 15px;
 }
 
 form {
     background-color: var(--secondary-color);
 }
 
+.sign-up-control {
+    border-radius: 16px;
+    border: 1px solid #2F2E41;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.sign-up-label {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.time-block-labels {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.name-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .sign-up-name {
+        display: block;
+        margin-left:10px;
+        width: 50%; /* Adjust margin between columns */
+    }
 
 
+.sign-up-group {
+    margin-bottom: 20px;
+}
+
+.add-tb-btn {
+    display: block;
+    width: 50%;
+    padding: 20px;
+    background-color: #2F2E41;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 16px; /* Increased border-radius for rounded corners */
+    border-color: none;
+    transition: background-color 0.3s ease;
+}
+
+    .add-tb-btn:hover {
+        background-color: #54BCFE;
+    }
+.next-btn {
+    display: block;
+    width: 50%;
+    margin-left: 10px;
+    padding: 20px;
+    background-color: #2F2E41;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 16px; /* Increased border-radius for rounded corners */
+    border-color: none;
+    transition: background-color 0.3s ease;
+}
+    .next-btn:hover {
+        background-color: #54BCFE;
+    }
+/*End SignUp page*/
+/*Start SignIn page*/
+.sign-in-section {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 35px;
+    color: #2F2E41;
+    font-weight: bold;
+}
+
+.sign-in-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 16px; /* Increased border-radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    background: #54BCFE;
+}
+
+.sign-in-group {
+    margin-bottom: 20px;
+
+}
+
+.sign-in-label {
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.sign-in-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #2F2E41;
+    border-radius: 16px; /* Increased border-radius for rounded corners */
+    margin-top: 5px;
+}
+
+.log-in-page-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2F2E41;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 16px; /* Increased border-radius for rounded corners */
+    border-color: none;
+    transition: background-color 0.3s ease;
+}
+
+    .log-in-page-btn:hover {
+        background-color: #54BCFE;
+    }
 
 
+/*Offer Projects*/
+.container {
+    align-items: center;
+    align-content: space-around;
+    max-width: 800px;
+    margin-top: 350px;
+    padding: 40px;
+    border: 2px solid #54BCFE;
+    border-radius: 40px;
+  
+}
+
+.yes-btn {
+    background-color: #54BCFE;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 16px;
+    padding: 10px;
+
+}
+
+.project-btn {
+    background-color: #2F2E41;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 16px;
+    padding: 10px;
+}
+/*.yes-btn {
+    display: block;
+    width: 30%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #54BCFE;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 16px;*/ /* Increased border-radius for rounded corners */
+    /*border-color: none;
+    transition: background-color 0.3s ease;
+}
+
+.project-btn {
+    display: block;
+    width: 30%;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #2F2E41;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 16px;*/ /* Increased border-radius for rounded corners */
+    /*border-color: none;
+    transition: background-color 0.3s ease;
+}*/
+
+
+.timeslot-label {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.offer-projects-title {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+}
 /* DASHBOARD STYLES BELOW */
-
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;

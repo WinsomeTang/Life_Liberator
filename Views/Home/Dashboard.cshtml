@@ -27,15 +27,16 @@
     <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
 </head>
 <body>
+            <a class="home-nav-link" asp-action="Index">
+            <img class="logo-img" src="~/images/LifeLiberator_logo.png" />
+        </a>
     <!-- Welcome head that runs along the right 85% of the screen-->
     <h1 id="welcome-header">Welcome, @ViewBag.FirstName! Your User ID is @ViewBag.UserId</h1>
 
     <!-- Sidebar section that is the leftmost 15% of the screen with 3 links to Modify Schedule, Projects, Settings
          At the bottom left corner is the user's name-->
     <section id="sidebar">
-        <a href="#">Modify Schedule</a>
-        <a href="#">Projects</a>
-        <a href="#">Settings</a>
+        <a>Projects</a> 
         <div id="sidebar-name">@ViewBag.FirstName</div>
     </section>
 

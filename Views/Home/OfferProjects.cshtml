@@ -1,7 +1,10 @@
 ﻿@model Life_Liberator.Models.User
 
 @{
+    var counter = 1;
+
     Layout = null;
+
 }
 
 <!DOCTYPE html>
@@ -13,8 +16,106 @@
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="~/css/styles.css" asp-append-version="true" />
     <title>Offer Projects | Life Liberator</title>
+
+    <script>
+        var isYesClicked = false;
+
+        function acceptProject(userId, startTime, endTime, cleanStartTime, cleanEndTime, project) {
+            console.log('Accept Project (Before):', userId, startTime, endTime);
+
+            displayUserChoice('Project Accepted', startTime, endTime);
+            var newScheduleEntry = 'Project Accepted' + startTime + endTime;
+            // If there are existing entries in the schedule, append the new entry
+            Model.Schedule += '|' + newScheduleEntry;
+
+            updateSchedule(project.Title, startTime, endTime); // Use project.Title instead of project.title
+            console.log('Update Schedule:', project.title, startTime, endTime);
+
+            // Update the User model on the server (you may need an AJAX call or similar mechanism)
+            // For simplicity, this example only updates the UI and doesn't persist the changes to the server
+            updateScheduleUI();
+            console.log('Update Schedule UI:', Model.Schedule);
+        }
+
+        function getAnotherProject(userId, startTime, endTime, cleanStartTime, cleanEndTime) {
+        console.log('Get Another Project:', userId, startTime, endTime);
+        }
+
+        function displayProjectDetails(project, startTime, endTime) {
+        var detailsElement = document.getElementById('chosenProjectDetails_' + startTime + '_' + endTime);
+            detailsElement.innerHTML = '<strong>Chosen Project:</strong> ' + project.title + '<br><strong>Description:</strong> ' + project.description;
+
+        }
+
+        function displayUserChoice(choice, startTime, endTime) {
+            var userChoiceElementId = 'userChoice_' + startTime + '_' + endTime;
+            var userChoiceElement = document.getElementById(userChoiceElementId);
+
+            if (!userChoiceElement) {
+                // Create a new div for user choice messages
+                userChoiceElement = document.createElement('div');
+                userChoiceElement.id = userChoiceElementId;
+                document.body.appendChild(userChoiceElement);
+            }
+
+            userChoiceElement.innerHTML = '<strong>User Choice:</strong> ' + choice;
+        }
+
+
+        function getRandomProject(proficiencyLevel, startTime, endTime) {
+        var projects = @Html.Raw(Json.Serialize(Project.InitializeProjects()));
+        var difficultyBounds = {
+            'Beginner': { lower: 0, upper: 7 },
+            'Intermediate': { lower: 8, upper: 15 },
+            'Advanced': { lower: 16, upper: 23 }
+        };
+
+        var bounds = difficultyBounds[proficiencyLevel];
+        console.log('Proficiency Level:', proficiencyLevel);
+        console.log('Difficulty Bounds:', bounds);
+
+        var randomIndex = Math.floor(Math.random() * (bounds.upper - bounds.lower + 1)) + bounds.lower;
+        console.log('Random Index:', randomIndex);
+
+        var randomProject = projects[randomIndex];
+        console.log('Random Project:', randomProject);
+
+        // Display the chosen project details
+            displayProjectDetails(randomProject, startTime, endTime);
+
+        return randomProject;
+        }
+
+        function updateSchedule(projectTitle, startTime, endTime) {
+            // Assuming Model.Schedule is a string in the format "start1-end1|start2-end2|..."
+            var newScheduleEntry = startTime + '-' + endTime + '(' + projectTitle + ')';
+            if (Model.Schedule) {
+                // If there are existing entries in the schedule, append the new entry
+                Model.Schedule += '|' + newScheduleEntry;
+            } else {
+                // If the schedule is empty, set it to the new entry
+                Model.Schedule = newScheduleEntry;
+            }
+
+            // Update the User model on the server (you may need an AJAX call or similar mechanism)
+            // For simplicity, this example only updates the UI and doesn't persist the changes to the server
+            updateScheduleUI();
+        }
+
+        function updateScheduleUI() {
+            // Update the UI to reflect the changes in the schedule
+            // This is a placeholder; you may need to update the UI using your preferred framework or library
+            console.log('Updated Schedule:', Model.Schedule);
+        }
+    </script>
 </head>
+
 <body>
+
+    <a class="home-nav-link" asp-action="Index">
+        <img class="logo-img-index" src="~/images/LifeLiberator_logo.png" />
+    </a>
+
     <section class="offer-projects-title">
         <h1>Available Projects</h1>
         <p>Review and choose your projects</p>
@@ -28,19 +129,24 @@
                 var timeParts = timeBlock.Split('-');
                 var startTime = timeParts[0];
                 var endTime = timeParts[1];
+                var cleanStartTime = startTime.Replace(":", "_");
+                var cleanEndTime = endTime.Replace(":", "_");
+                var projectDetailsId = $"chosenProjectDetails_{cleanStartTime}_{cleanEndTime}";
+                var userChoiceElementId = $"userChoice_{cleanStartTime}_{cleanEndTime}";
+                var timeSlotContainerId = $"timeSlotContainer_{cleanStartTime}_{cleanEndTime}";
 
-                <div class="time-slot">
-                    <label>Time Slot: @startTime - @endTime</label>
-                    <!-- You can add your task prompt and buttons here -->
-                    <div>
-                        <label>Task: </label>
-                        <input type="text" readonly />
-                    </div>
-                    <div>
-                        <button class="btn btn-success">Accept</button>
-                        <button class="btn btn-danger">Decline</button>
-                        <button class="btn btn-primary">Another Task</button>
-                    </div>
+                <div id="@timeSlotContainerId" class="time-slot">
+                    <label class="timeslot-label">Time Slot: @startTime - @endTime</label>
+                    <br/>
+               
+                        <button class="yes-btn" onclick="acceptProject('@Model.UserId', '@startTime', '@endTime', '@cleanStartTime', '@cleanEndTime')">Yes</button>
+                       
+                        <button class="project-btn" onclick="getRandomProject('@Model.ProficiencyLevel', '@cleanStartTime', '@cleanEndTime')">Generate Project >:(</button> <br/>
+                        <div id="@userChoiceElementId"></div>
+                    <br/>
+                        <div id="@projectDetailsId"></div>
+                        <br/>
+                   
                 </div>
             }
         }
